@@ -13,6 +13,8 @@ class GameScene: SKScene {
     let picture1 = SKSpriteNode(imageNamed: "apple.png")
     let picture2 = SKSpriteNode(imageNamed: "banana.jpeg")
     let picture3 = SKSpriteNode(imageNamed: "orange.jpg")
+    let pictureBorder = SKSpriteNode()
+    let shuffleButton = SKSpriteNode(imageNamed: "Red Button.png")
     let label1 = SKLabelNode(fontNamed: "Menlo")
     
     override func didMove(to view: SKView) {
@@ -28,23 +30,65 @@ class GameScene: SKScene {
             
             if touchedNode.name == "Apple" {
                 label1.text = "Good job!"
+                
                 picture2.removeFromParent()
                 picture3.removeFromParent()
                 picture1.position = CGPoint(x: self.size.width * 0.50, y: self.size.height / 2)
                 picture1.setScale(0.75)
+                pictureBorder.position = CGPoint(x: picture1.position.x, y: picture1.position.y)
+                
             }
         }
     }
 
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        
     }
     
     func setupNodes(){
+        
+        
         setupSpriteNode(spriteNode: picture1, position: CGPoint(x: self.size.width * 0.25, y: self.size.height / 2), anchorPoint: CGPoint(x: 0.5, y: 0.5), zPosition : 10, scale: 0.75, name : "Apple")
-        setupSpriteNode(spriteNode: picture2, position: CGPoint(x: self.size.width * 0.50, y: self.size.height / 2), anchorPoint: CGPoint(x: 0.5, y: 0.5), zPosition : 10, scale: 0.75, name : "Banana")
-        setupSpriteNode(spriteNode: picture3, position: CGPoint(x: self.size.width * 0.75, y: self.size.height / 2), anchorPoint: CGPoint(x: 0.5, y: 0.5), zPosition : 10, scale: 0.50, name : "Orange")
-        setupLabelNode(labelNode: label1, text: "Pick Apple!", fontColor: SKColor.black, fontSize: 150, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.75))
+        //setupSpriteNode(spriteNode: picture2, position: CGPoint(x: self.size.width * 0.50, y: self.size.height / 2), anchorPoint: CGPoint(x: 0.5, y: 0.5), zPosition : 10, scale: 0.75, name : "Banana")
+        //setupSpriteNode(spriteNode: picture3, position: CGPoint(x: self.size.width * 0.75, y: self.size.height / 2), anchorPoint: CGPoint(x: 0.5, y: 0.5), zPosition : 10, scale: 0.50, name : "Orange")
+        //setupLabelNode(labelNode: label1, text: "Pick Apple!", fontColor: SKColor.black, fontSize: 150, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.75))
+        setupPictureBorders()
+        
+    }
+    
+    func setupPictureBorders() {
+        pictureBorder.position = CGPoint(x: picture1.position.x, y: picture1.position.y)
+        pictureBorder.zPosition = -20
+        
+        pictureBorder.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        let borderSize = CGSize(width: picture1.size.width + 100, height: picture1.size.height + 100)
+        let fillColor = UIColor.clear
+        let borderColor = UIColor.black
+        
+        UIGraphicsBeginImageContextWithOptions(borderSize, false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        
+        borderColor.setStroke()
+        let borderRect = CGRect(origin: .zero, size: CGSize(width: picture1.size.width + 100, height: picture1.size.height + 100))
+        context!.stroke(borderRect, width: 3)
+        
+     
+        fillColor.setFill()
+        let barWidth = (borderSize.width)
+        let barRect = CGRect(x: 0.5, y: 0.5, width: barWidth, height: borderSize.height - 1)
+        context!.fill(barRect)
+        
+        
+        // extract image
+        let spriteImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // set sprite texture and size
+        pictureBorder.texture = SKTexture(image: spriteImage!)
+        pictureBorder.size = borderSize
+        
+        addChild(pictureBorder)
     }
     
     func setupSpriteNode(spriteNode _spriteNode: SKSpriteNode, position _position: CGPoint, anchorPoint _anchorPoint: CGPoint, zPosition _zPosition: CGFloat, scale _scale: CGFloat, name _name: String) {
