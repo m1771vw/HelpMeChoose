@@ -33,7 +33,7 @@ class GameScene: SKScene {
     let standardAnchorPoint = CGPoint(x: 0.5, y: 0.5)
     var numberOfImages: CGFloat = 3
     lazy var correctImage: String = self.chosenNodeArray[0].name!
-    lazy var correctSpriteNode: SKSpriteNode = apple
+    lazy var correctSpriteNode: SKSpriteNode = self.chosenNodeArray[0]
 //    override init() {
 //        super.init()
 //    }
@@ -42,6 +42,7 @@ class GameScene: SKScene {
 //    }
     override func didMove(to view: SKView) {
         setupChosenNodeArray()
+        print(chosenNodeArray)
         setupNodes()
         backgroundColor = SKColor.white
         
@@ -55,13 +56,13 @@ class GameScene: SKScene {
             if touchedNode.name == correctImage {
                 pickLabel.text = "Good job!"
                 
-                banana.removeFromParent()
-                orange.removeFromParent()
-                grape.removeFromParent()
+                chosenNodeArray[1].removeFromParent()
+                chosenNodeArray[2].removeFromParent()
+                
                 pictureBorder2.removeFromParent()
                 pictureBorder3.removeFromParent()
                 correctSpriteNode.position = CGPoint(x: self.size.width * 0.50, y: self.size.height / 2)
-                correctSpriteNode.setScale(0.75)
+                //correctSpriteNode.setScale(0.75)
                 pictureBorder1.position = CGPoint(x: correctSpriteNode.position.x, y: correctSpriteNode.position.y)
                 
             }
@@ -81,6 +82,7 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
+        
     }
     func shuffle() {
         let arrayTest = [position1, position2, position3]
@@ -93,11 +95,13 @@ class GameScene: SKScene {
     
     func next() {
         chosenNodeArray.removeAll()
-        
         removeAllChildren()
         setupChosenNodeArray()
-        
         setupNodes()
+        correctImage = chosenNodeArray[0].name!
+        updatePickLabel()
+        updateCorrectNode()
+        
     }
     func setupNodes(){
         
@@ -164,22 +168,22 @@ class GameScene: SKScene {
         while(uniqueNumbers.count != Int(numberOfImages))
         {
             uniqueNumbers.insert(Int(arc4random_uniform(UInt32(spriteNodeArray.count)) + 0))
-            print(uniqueNumbers)
         }
-        
+        print(uniqueNumbers)
         for number in uniqueNumbers {
             chosenNodeArray.append(spriteNodeArray[number])
-            
         }
-//        chosenNodeArray.append(apple)
-//        chosenNodeArray.append(orange)
-//        chosenNodeArray.append(banana)
-//        chosenNodeArray.append(grape)
+
         
     }
     
+    func updatePickLabel() {
+        pickLabel.text = "Pick \(correctImage)"
+    }
     
-    
+    func updateCorrectNode() {
+        correctSpriteNode = chosenNodeArray[0]
+    }
     
     // Helper functions
     func setupSpriteNode(spriteNode _spriteNode: SKSpriteNode, position _position: CGPoint, anchorPoint _anchorPoint: CGPoint, zPosition _zPosition: CGFloat, scale _scale: CGFloat, name _name: String) {
