@@ -24,6 +24,9 @@
 		F36257911FE37E5800D2EC7E /* Home Button.png in Resources */ = {isa = PBXBuildFile; fileRef = F36257901FE37E5800D2EC7E /* Home Button.png */; };
 		F36AE57F1FE3BA5E00545BC2 /* Next Button.png in Resources */ = {isa = PBXBuildFile; fileRef = F36AE57E1FE3BA5E00545BC2 /* Next Button.png */; };
 		F36AE5811FE65EFF00545BC2 /* grapes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F36AE5801FE65EFF00545BC2 /* grapes.jpg */; };
+		F36AE5851FF1AB2100545BC2 /* pear.png in Resources */ = {isa = PBXBuildFile; fileRef = F36AE5821FF1AB2000545BC2 /* pear.png */; };
+		F36AE5861FF1AB2100545BC2 /* strawberry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F36AE5831FF1AB2000545BC2 /* strawberry.jpg */; };
+		F36AE5871FF1AB2100545BC2 /* watermelon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F36AE5841FF1AB2100545BC2 /* watermelon.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		F36257901FE37E5800D2EC7E /* Home Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home Button.png"; sourceTree = "<group>"; };
 		F36AE57E1FE3BA5E00545BC2 /* Next Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Next Button.png"; sourceTree = "<group>"; };
 		F36AE5801FE65EFF00545BC2 /* grapes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grapes.jpg; sourceTree = "<group>"; };
+		F36AE5821FF1AB2000545BC2 /* pear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pear.png; sourceTree = "<group>"; };
+		F36AE5831FF1AB2000545BC2 /* strawberry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strawberry.jpg; sourceTree = "<group>"; };
+		F36AE5841FF1AB2100545BC2 /* watermelon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = watermelon.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,9 @@
 				F36257891FE10B9600D2EC7E /* apple.png */,
 				F36AE5801FE65EFF00545BC2 /* grapes.jpg */,
 				F36AE57E1FE3BA5E00545BC2 /* Next Button.png */,
+				F36AE5821FF1AB2000545BC2 /* pear.png */,
+				F36AE5831FF1AB2000545BC2 /* strawberry.jpg */,
+				F36AE5841FF1AB2100545BC2 /* watermelon.jpg */,
 				F362578A1FE10B9600D2EC7E /* banana.jpeg */,
 				F36257901FE37E5800D2EC7E /* Home Button.png */,
 				F36257881FE10B9600D2EC7E /* orange.jpg */,
@@ -272,9 +281,11 @@
 			files = (
 				F362578D1FE10B9600D2EC7E /* banana.jpeg in Resources */,
 				F362575F1FE10A2400D2EC7E /* Main.storyboard in Resources */,
+				F36AE5861FF1AB2100545BC2 /* strawberry.jpg in Resources */,
 				F362578B1FE10B9600D2EC7E /* orange.jpg in Resources */,
 				F36AE5811FE65EFF00545BC2 /* grapes.jpg in Resources */,
 				F36257561FE10A2400D2EC7E /* GameScene.sks in Resources */,
+				F36AE5871FF1AB2100545BC2 /* watermelon.jpg in Resources */,
 				F362578C1FE10B9600D2EC7E /* apple.png in Resources */,
 				F36257611FE10A2400D2EC7E /* Assets.xcassets in Resources */,
 				F36257641FE10A2400D2EC7E /* LaunchScreen.storyboard in Resources */,
@@ -282,6 +293,7 @@
 				F362578F1FE1112B00D2EC7E /* Red Button.png in Resources */,
 				F36AE57F1FE3BA5E00545BC2 /* Next Button.png in Resources */,
 				F36257911FE37E5800D2EC7E /* Home Button.png in Resources */,
+				F36AE5851FF1AB2100545BC2 /* pear.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

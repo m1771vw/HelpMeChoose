@@ -19,7 +19,10 @@ class GameScene: SKScene {
     let banana = SKSpriteNode(imageNamed: "banana.jpeg")
     let orange = SKSpriteNode(imageNamed: "orange.jpg")
     let grape = SKSpriteNode(imageNamed: "grapes.jpg")
-    lazy var spriteNodeArray: [SKSpriteNode] = [apple, banana, orange, grape]
+    let watermelon = SKSpriteNode(imageNamed: "watermelon.jpg")
+    let strawberry = SKSpriteNode(imageNamed: "strawberry.jpg")
+    let pear = SKSpriteNode(imageNamed: "pear.png")
+    lazy var spriteNodeArray: [SKSpriteNode] = [apple, banana, orange, grape, watermelon, strawberry, pear]
     var chosenNodeArray: [SKSpriteNode] = []
     let pictureBorder1 = SKSpriteNode()
     let pictureBorder2 = SKSpriteNode()
@@ -109,7 +112,9 @@ class GameScene: SKScene {
         setupSpriteNode(spriteNode: banana, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.75, name: "Banana")
         setupSpriteNode(spriteNode: orange, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.40, name: "Orange")
         setupSpriteNode(spriteNode: grape, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.35, name: "Grape")
-        
+        setupSpriteNode(spriteNode: watermelon, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.35, name: "Watermelon")
+        setupSpriteNode(spriteNode: strawberry, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.75, name: "Strawberry")
+        setupSpriteNode(spriteNode: pear, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.35, name: "Pear")
         addChild(chosenNodeArray[0])
         addChild(chosenNodeArray[1])
         addChild(chosenNodeArray[2])
