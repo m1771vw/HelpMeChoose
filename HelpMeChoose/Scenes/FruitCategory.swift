@@ -1,15 +1,15 @@
 //
-//  GameScene.swift
+//  FruitCategory.swift
 //  HelpMeChoose
 //
-//  Created by William Yang on 12/12/17.
+//  Created by William Yang on 12/31/17.
 //  Copyright © 2017 WMA Games. All rights reserved.
 //
 
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class FruitCategory: SKScene {
     
     lazy var position1 = CGPoint(x: size.width * CGFloat(1 / (numberOfImages + 1)), y: size.height * 0.25)
     lazy var position2 = CGPoint(x: size.width * CGFloat(2 / (numberOfImages + 1)), y: size.height * 0.25)
@@ -31,7 +31,7 @@ class GameScene: SKScene {
     let shuffleButton = SKSpriteNode(imageNamed: "Red Button.png") // Need to have better picture
     let homeButton = SKSpriteNode(imageNamed: "Home Button.png") // Need to have better picture
     let nextButton = SKSpriteNode(imageNamed: "Next Button.png") // Need to have better picture
-    let pickLabel = SKLabelNode(fontNamed: "Menlo") // Need to be a picture
+    let pickLabel = SKLabelNode(fontNamed: "ChalkboardSE-Bold") // Need to be a picture
     
     let standardAnchorPoint = CGPoint(x: 0.5, y: 0.5)
     var numberOfImages: CGFloat = 3  // This will need to be changed later
@@ -62,7 +62,7 @@ class GameScene: SKScene {
             }
         }
     }
-
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
@@ -93,8 +93,8 @@ class GameScene: SKScene {
         for i in 1..<Int(numberOfImages) {
             chosenNodeArray[i].removeFromParent()
         }
-//        chosenNodeArray[1].removeFromParent()
-//        chosenNodeArray[2].removeFromParent()
+        //        chosenNodeArray[1].removeFromParent()
+        //        chosenNodeArray[2].removeFromParent()
         pictureBorder2.removeFromParent()
         pictureBorder3.removeFromParent()
         pictureBorder4.removeFromParent()
@@ -113,9 +113,9 @@ class GameScene: SKScene {
         for i in 0..<Int(numberOfImages) {
             addChild(chosenNodeArray[i])
         }
-//        addChild(chosenNodeArray[0])
-//        addChild(chosenNodeArray[1])
-//        addChild(chosenNodeArray[2])
+        //        addChild(chosenNodeArray[0])
+        //        addChild(chosenNodeArray[1])
+        //        addChild(chosenNodeArray[2])
         shuffleImages()
         
         setupLabelNode(labelNode: pickLabel, text: "Pick \(correctImage)!", fontColor: SKColor.black, fontSize: 150, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.75))
@@ -207,3 +207,4 @@ class GameScene: SKScene {
         addChild(_labelNode)
     }
 }
+
