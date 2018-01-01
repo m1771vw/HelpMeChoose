@@ -15,7 +15,8 @@ class GameScene: SKScene {
     lazy var position2 = CGPoint(x: size.width * CGFloat(2 / (numberOfImages + 1)), y: size.height * 0.25)
     lazy var position3 = CGPoint(x: size.width * CGFloat(3 / (numberOfImages + 1)), y: size.height * 0.25)
     lazy var position4 = CGPoint(x: size.width * CGFloat(4 / (numberOfImages + 1)), y: size.height * 0.25)
-    let apple = SKSpriteNode(imageNamed: "apple.png")
+    let pictureBorderNode = SKSpriteNode(imageNamed: "apple.png") // Using Apple as a temp image
+    let apple = SKSpriteNode(imageNamed: "apple.png") // Using Apple as a temp image
     lazy var spriteNodeArray: [SKSpriteNode] = [apple]
     var chosenNodeArray: [SKSpriteNode] = []
     let pictureBorder1 = SKSpriteNode()
@@ -122,14 +123,14 @@ class GameScene: SKScene {
         pictureBorder.position = position
         pictureBorder.zPosition = -20
         pictureBorder.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        let borderSize = CGSize(width: apple.size.width + 100, height: apple.size.height + 100)
+        let borderSize = CGSize(width: pictureBorderNode.size.width * CGFloat(1 + (1 / (numberOfImages + 1))), height: pictureBorderNode.size.height * CGFloat(1 + (1 / (numberOfImages + 1))))
         let fillColor = UIColor.clear
         let borderColor = UIColor.black
         // Start UI Graphics
         UIGraphicsBeginImageContextWithOptions(borderSize, false, 0)
         let context = UIGraphicsGetCurrentContext()
         borderColor.setStroke()
-        let borderRect = CGRect(origin: .zero, size: CGSize(width: apple.size.width + 100, height: apple.size.height + 100))
+        let borderRect = CGRect(origin: .zero, size: CGSize(width: pictureBorderNode.size.width * CGFloat(1 + (1 / (numberOfImages + 1))), height: pictureBorderNode.size.height * CGFloat(1 + (1 / (numberOfImages + 1)))))
         context!.stroke(borderRect, width: 3)
         fillColor.setFill()
         let barWidth = (borderSize.width)
