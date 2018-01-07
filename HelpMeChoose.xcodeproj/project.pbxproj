@@ -36,8 +36,9 @@
 		F36AE59B1FF61CFE00545BC2 /* carrot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F36AE5951FF61CFD00545BC2 /* carrot.jpg */; };
 		F36AE59C1FF61CFE00545BC2 /* corn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F36AE5961FF61CFD00545BC2 /* corn.jpg */; };
 		F36AE59F1FF9FC8E00545BC2 /* VegetableCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36AE59E1FF9FC8E00545BC2 /* VegetableCategory.swift */; };
-		F36AE5A21FF9FCB000545BC2 /* FruitCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36AE5A11FF9FCB000545BC2 /* FruitCategory.swift */; };
+		F36AE5A21FF9FCB000545BC2 /* FruitCategory2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36AE5A11FF9FCB000545BC2 /* FruitCategory2.swift */; };
 		F36AE5A420008D5000545BC2 /* SetupSceneHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36AE5A320008D5000545BC2 /* SetupSceneHelper.swift */; };
+		F38E541C2001BE65007C101F /* FruitCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38E541B2001BE65007C101F /* FruitCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +94,9 @@
 		F36AE5951FF61CFD00545BC2 /* carrot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carrot.jpg; sourceTree = "<group>"; };
 		F36AE5961FF61CFD00545BC2 /* corn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = corn.jpg; sourceTree = "<group>"; };
 		F36AE59E1FF9FC8E00545BC2 /* VegetableCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegetableCategory.swift; sourceTree = "<group>"; };
-		F36AE5A11FF9FCB000545BC2 /* FruitCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitCategory.swift; sourceTree = "<group>"; };
+		F36AE5A11FF9FCB000545BC2 /* FruitCategory2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitCategory2.swift; sourceTree = "<group>"; };
 		F36AE5A320008D5000545BC2 /* SetupSceneHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupSceneHelper.swift; sourceTree = "<group>"; };
+		F38E541B2001BE65007C101F /* FruitCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +213,8 @@
 				F36AE58B1FF33E3500545BC2 /* CategoryPage.swift */,
 				F36AE5891FF33DA600545BC2 /* TitlePage.swift */,
 				F36AE59E1FF9FC8E00545BC2 /* VegetableCategory.swift */,
-				F36AE5A11FF9FCB000545BC2 /* FruitCategory.swift */,
+				F36AE5A11FF9FCB000545BC2 /* FruitCategory2.swift */,
+				F38E541B2001BE65007C101F /* FruitCategory.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -394,8 +397,9 @@
 				F36AE5901FF33F5E00545BC2 /* SpriteNodeHelper.swift in Sources */,
 				F362575C1FE10A2400D2EC7E /* GameViewController.swift in Sources */,
 				F36257541FE10A2400D2EC7E /* AppDelegate.swift in Sources */,
-				F36AE5A21FF9FCB000545BC2 /* FruitCategory.swift in Sources */,
+				F36AE5A21FF9FCB000545BC2 /* FruitCategory2.swift in Sources */,
 				F36AE5A420008D5000545BC2 /* SetupSceneHelper.swift in Sources */,
+				F38E541C2001BE65007C101F /* FruitCategory.swift in Sources */,
 				F36AE58C1FF33E3500545BC2 /* CategoryPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
