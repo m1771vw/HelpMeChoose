@@ -17,7 +17,7 @@ class GameScene: SKScene {
     lazy var position4 = CGPoint(x: size.width * CGFloat(4 / (numberOfImages + 1)), y: size.height * 0.25)
     let pictureBorderNode = SKSpriteNode(imageNamed: "apple.png") // Using Apple as a temp image
     let apple = SKSpriteNode(imageNamed: "apple.png") // Using Apple as a temp image
-    lazy var spriteNodeArray: [SKSpriteNode] = [apple]
+    var spriteNodeArray: [SKSpriteNode] = []
     var chosenNodeArray: [SKSpriteNode] = []
     let pictureBorder1 = SKSpriteNode()
     let pictureBorder2 = SKSpriteNode()
@@ -30,15 +30,13 @@ class GameScene: SKScene {
     
     let standardAnchorPoint = CGPoint(x: 0.5, y: 0.5)
     var numberOfImages: CGFloat = 3  // This will need to be changed later
+    let setupSceneHelper = SetupSceneHelper()
+    let spriteNodeHelper = SpriteNodeHelper()
 //    lazy var correctImage: String = self.chosenNodeArray[0].name!
 //    lazy var correctSpriteNode: SKSpriteNode = self.chosenNodeArray[0]
-    var correctImage = "apple"
-    lazy var correctSpriteNode = self.apple
-    override func didMove(to view: SKView) {
-        setupChosenNodeArray()
-        setupNodes()
-        backgroundColor = SKColor.white
-    }
+    var correctImage: String = "apple"
+    lazy var correctSpriteNode: SKSpriteNode = self.apple
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first{
@@ -77,8 +75,7 @@ class GameScene: SKScene {
     func nextImages() {
         chosenNodeArray.removeAll()
         removeAllChildren()
-        setupChosenNodeArray()
-        setupNodes()
+        setupChosenNodeArray(spriteNodeArray: spriteNodeArray)
         setupMenuNodes()
         correctImage = chosenNodeArray[0].name!
         updatePickLabel()
@@ -90,22 +87,18 @@ class GameScene: SKScene {
         for i in 1..<Int(numberOfImages) {
             chosenNodeArray[i].removeFromParent()
         }
-//        chosenNodeArray[1].removeFromParent()
-//        chosenNodeArray[2].removeFromParent()
         pictureBorder2.removeFromParent()
         pictureBorder3.removeFromParent()
         pictureBorder4.removeFromParent()
-        correctSpriteNode.position = CGPoint(x: self.size.width * 0.50, y: self.size.height * 0.30)
+        correctSpriteNode.position = CGPoint(x: self.size.width * 0.50, y: self.size.height * 0.25)
         pictureBorder1.position = CGPoint(x: correctSpriteNode.position.x, y: correctSpriteNode.position.y)
     }
-    func setupNodes() {
-        
-    }
+
     func setupMenuNodes(){
-        setupLabelNode(labelNode: pickLabel, text: "Pick \(correctImage)!", fontColor: SKColor.black, fontSize: 150, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.75))
-        setupSpriteNode(spriteNode: shuffleButton, position: CGPoint(x: self.size.width * 0.9, y: self.size.height * 0.9), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.10, name: "Shuffle Button")
-        setupSpriteNode(spriteNode: homeButton, position: CGPoint(x: self.size.width * 0.1, y: self.size.height * 0.1), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.10, name: "Home Button")
-        setupSpriteNode(spriteNode: nextButton, position: CGPoint(x: self.size.width * 0.9, y: self.size.height * 0.1), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.10, name: "Next Button")
+        spriteNodeHelper.setupLabelNode(labelNode: pickLabel, text: "Pick \(correctImage)!", fontColor: SKColor.black, fontSize: 150, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.75))
+        spriteNodeHelper.setupSpriteNode(spriteNode: shuffleButton, position: CGPoint(x: self.size.width * 0.9, y: self.size.height * 0.9), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.10, name: "Shuffle Button")
+        spriteNodeHelper.setupSpriteNode(spriteNode: homeButton, position: CGPoint(x: self.size.width * 0.1, y: self.size.height * 0.1), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.10, name: "Home Button")
+        spriteNodeHelper.setupSpriteNode(spriteNode: nextButton, position: CGPoint(x: self.size.width * 0.9, y: self.size.height * 0.1), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.10, name: "Next Button")
         addChild(homeButton)
         addChild(nextButton)
         addChild(shuffleButton)
@@ -146,18 +139,22 @@ class GameScene: SKScene {
         addChild(pictureBorder)
     }
     
-    func setupChosenNodeArray() {
+    func setupChosenNodeArray(spriteNodeArray _spriteNodeArray: [SKSpriteNode]) {
         var uniqueNumbers = Set<Int>()
         while(uniqueNumbers.count != Int(numberOfImages))
         {
-            uniqueNumbers.insert(Int(arc4random_uniform(UInt32(spriteNodeArray.count)) + 0))
+            uniqueNumbers.insert(Int(arc4random_uniform(UInt32(_spriteNodeArray.count)) + 0))
         }
         print(uniqueNumbers)
         for number in uniqueNumbers {
-            chosenNodeArray.append(spriteNodeArray[number])
+            chosenNodeArray.append(_spriteNodeArray[number])
         }
     }
     
+    func setupCorrectImage(correctImage _correctImage: String, correctSpriteNode _correctSpriteNode: SKSpriteNode) {
+        correctImage = _correctImage
+        correctSpriteNode = _correctSpriteNode
+    }
     func updatePickLabel() {
         pickLabel.text = "Pick \(correctImage)"
     }
@@ -170,24 +167,5 @@ class GameScene: SKScene {
         let scene = TitlePage(size: CGSize(width: 1334, height: 750))
         scene.scaleMode = .aspectFill
         view?.presentScene(scene)
-    }
-    // Helper functions
-    func setupSpriteNode(spriteNode _spriteNode: SKSpriteNode, position _position: CGPoint, anchorPoint _anchorPoint: CGPoint, zPosition _zPosition: CGFloat, scale _scale: CGFloat, name _name: String) {
-        _spriteNode.position = _position
-        _spriteNode.anchorPoint = _anchorPoint
-        _spriteNode.zPosition = _zPosition
-        _spriteNode.setScale(_scale)
-        _spriteNode.name = _name
-    }
-    
-    func setupLabelNode(labelNode _labelNode: SKLabelNode, text _text: String, fontColor _fontColor: SKColor, fontSize _fontSize: CGFloat, zPosition _zPosition: CGFloat, horizontalAlignmentMode _horizontalAlignmentMode: SKLabelHorizontalAlignmentMode, verticalAlignmentMode _verticalAlignmentMode: SKLabelVerticalAlignmentMode, position _position: CGPoint) {
-        _labelNode.text = _text
-        _labelNode.fontColor = _fontColor
-        _labelNode.fontSize = _fontSize
-        _labelNode.zPosition = _zPosition
-        _labelNode.horizontalAlignmentMode = _horizontalAlignmentMode
-        _labelNode.verticalAlignmentMode = _verticalAlignmentMode
-        _labelNode.position = _position
-        addChild(_labelNode)
     }
 }

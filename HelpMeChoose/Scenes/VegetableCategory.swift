@@ -10,27 +10,44 @@ import SpriteKit
 import GameKit
 
 class VegetableCategory : GameScene {
+    let broccoli = SKSpriteNode(imageNamed: "broccoli.png")
+    let carrot = SKSpriteNode(imageNamed: "carrot.jpg")
+    let corn = SKSpriteNode(imageNamed: "corn.jpg")
+    //let cucumber = SKSpriteNode(imageNamed: "cucumber.jpg")
+    let potato = SKSpriteNode(imageNamed: "potato.png")
+    let tomato = SKSpriteNode(imageNamed: "tomato.jpg")
+    lazy override var spriteNodeArray: [SKSpriteNode] = [broccoli, carrot, corn, potato, tomato]
+//    lazy override var correctImage: String = self.chosenNodeArray[0].name!
+//    lazy override var correctSpriteNode: SKSpriteNode = self.chosenNodeArray[0]
+            
     
     override func didMove(to view: SKView) {
+        setupSceneHelper.setupChosenNodeArray(chosenNodeArray: &chosenNodeArray, spriteNodeArray: spriteNodeArray, numberOfImages: numberOfImages)
         setupMenuNodes()
+        setupNodes()
         backgroundColor = SKColor.white
+
     }
-    func test() {
-        
+    override func nextImages() {
+        super.nextImages()
+        setupNodes()
     }
     
-    override func setupNodes(){
-//        setupSpriteNode(spriteNode: apple, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.75, name: "Apple")
-//        setupSpriteNode(spriteNode: banana, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.75, name: "Banana")
-//        setupSpriteNode(spriteNode: orange, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.40, name: "Orange")
-//        setupSpriteNode(spriteNode: grape, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.35, name: "Grape")
-//        setupSpriteNode(spriteNode: watermelon, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.35, name: "Watermelon")
-//        setupSpriteNode(spriteNode: strawberry, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.75, name: "Strawberry")
-//        setupSpriteNode(spriteNode: pear, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.35, name: "Pear")
-//        for i in 0..<Int(numberOfImages) {
-//            addChild(chosenNodeArray[i])
-//        }
-//        shuffleImages()
+    func setupNodes(){
+        
+        spriteNodeHelper.setupSpriteNode(spriteNode: broccoli, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.35, name: "Broccoli")
+        spriteNodeHelper.setupSpriteNode(spriteNode: carrot, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.35, name: "Carrot")
+        spriteNodeHelper.setupSpriteNode(spriteNode: corn, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.35, name: "Corn")
+        //spriteNodeHelper.setupSpriteNode(spriteNode: cucumber, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.35, name: "Cucumber")
+        spriteNodeHelper.setupSpriteNode(spriteNode: potato, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.45, name: "Potato")
+        spriteNodeHelper.setupSpriteNode(spriteNode: tomato, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.35, name: "Tomato")
+        for i in 0..<Int(numberOfImages) {
+            addChild(chosenNodeArray[i])
+        }
+        shuffleImages()
+        
+        spriteNodeHelper.setupLabelNode(labelNode: pickLabel, text: "Pick \(correctImage)!", fontColor: SKColor.black, fontSize: 150, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.75))
+        addChild(pickLabel)
     }
     
 }
