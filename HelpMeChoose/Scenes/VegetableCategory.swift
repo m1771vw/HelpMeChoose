@@ -26,7 +26,7 @@ class VegetableCategory : GameScene {
         setupMenuNodes()
         setupNodes()
         backgroundColor = SKColor.white
-
+        nextImages()
     }
     override func nextImages() {
         super.nextImages()

@@ -34,10 +34,12 @@ class GameScene: SKScene {
     let spriteNodeHelper = SpriteNodeHelper()
 //    lazy var correctImage: String = self.chosenNodeArray[0].name!
 //    lazy var correctSpriteNode: SKSpriteNode = self.chosenNodeArray[0]
-    var correctImage: String = "apple"
-    lazy var correctSpriteNode: SKSpriteNode = self.apple
+//    var correctImage: String = "apple"
+//    lazy var correctSpriteNode: SKSpriteNode = self.apple
+    var correctImage: String = ""
+    var correctSpriteNode: SKSpriteNode!
     
-    
+    var ableToShuffle: Bool = true
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first{
             let touchedLocation = touch.location(in: self)
@@ -45,10 +47,11 @@ class GameScene: SKScene {
             if touchedNode.name == correctImage {
                 selectedCorrect()
             }
-            if touchedNode.name == "Shuffle Button" {
+            if touchedNode.name == "Shuffle Button" && ableToShuffle == true {
                 shuffleImages()
             }
             if touchedNode.name == "Next Button" {
+                ableToShuffle = true
                 nextImages()
             }
             if touchedNode.name == "Home Button" {
@@ -90,6 +93,7 @@ class GameScene: SKScene {
         pictureBorder2.removeFromParent()
         pictureBorder3.removeFromParent()
         pictureBorder4.removeFromParent()
+        ableToShuffle = false
         correctSpriteNode.position = CGPoint(x: self.size.width * 0.50, y: self.size.height * 0.25)
         pictureBorder1.position = CGPoint(x: correctSpriteNode.position.x, y: correctSpriteNode.position.y)
     }
