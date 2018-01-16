@@ -39,6 +39,9 @@
 		F36AE5A21FF9FCB000545BC2 /* FruitCategory2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36AE5A11FF9FCB000545BC2 /* FruitCategory2.swift */; };
 		F36AE5A420008D5000545BC2 /* SetupSceneHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36AE5A320008D5000545BC2 /* SetupSceneHelper.swift */; };
 		F38E541C2001BE65007C101F /* FruitCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38E541B2001BE65007C101F /* FruitCategory.swift */; };
+		F38E541F200AFC03007C101F /* Good Job.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F38E541E200AFC03007C101F /* Good Job.mp3 */; };
+		F38E5421200AFC77007C101F /* Try Again.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F38E5420200AFC77007C101F /* Try Again.mp3 */; };
+		F38E5423200AFD75007C101F /* Menu Button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F38E5422200AFD75007C101F /* Menu Button.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,9 @@
 		F36AE5A11FF9FCB000545BC2 /* FruitCategory2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitCategory2.swift; sourceTree = "<group>"; };
 		F36AE5A320008D5000545BC2 /* SetupSceneHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupSceneHelper.swift; sourceTree = "<group>"; };
 		F38E541B2001BE65007C101F /* FruitCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitCategory.swift; sourceTree = "<group>"; };
+		F38E541E200AFC03007C101F /* Good Job.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Good Job.mp3"; sourceTree = "<group>"; };
+		F38E5420200AFC77007C101F /* Try Again.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Try Again.mp3"; sourceTree = "<group>"; };
+		F38E5422200AFD75007C101F /* Menu Button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Menu Button.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,7 @@
 		F36257521FE10A2400D2EC7E /* HelpMeChoose */ = {
 			isa = PBXGroup;
 			children = (
+				F38E541D200AFBEF007C101F /* Sounds */,
 				F36AE58E1FF33F4900545BC2 /* Classes */,
 				F36AE58D1FF33E4200545BC2 /* Scenes */,
 				F36257871FE10B8400D2EC7E /* Images */,
@@ -238,6 +245,16 @@
 				F36AE5921FF61CFD00545BC2 /* tomato.jpg */,
 			);
 			path = Vegetables;
+			sourceTree = "<group>";
+		};
+		F38E541D200AFBEF007C101F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F38E5422200AFD75007C101F /* Menu Button.mp3 */,
+				F38E541E200AFC03007C101F /* Good Job.mp3 */,
+				F38E5420200AFC77007C101F /* Try Again.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,8 +376,11 @@
 				F36AE5991FF61CFE00545BC2 /* potato.png in Resources */,
 				F36257611FE10A2400D2EC7E /* Assets.xcassets in Resources */,
 				F36257641FE10A2400D2EC7E /* LaunchScreen.storyboard in Resources */,
+				F38E541F200AFC03007C101F /* Good Job.mp3 in Resources */,
 				F36257581FE10A2400D2EC7E /* Actions.sks in Resources */,
 				F36AE59A1FF61CFE00545BC2 /* broccoli.png in Resources */,
+				F38E5421200AFC77007C101F /* Try Again.mp3 in Resources */,
+				F38E5423200AFD75007C101F /* Menu Button.mp3 in Resources */,
 				F362578F1FE1112B00D2EC7E /* Red Button.png in Resources */,
 				F36AE57F1FE3BA5E00545BC2 /* Next Button.png in Resources */,
 				F36AE5981FF61CFE00545BC2 /* tomato.jpg in Resources */,

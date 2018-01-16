@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameScene: SKScene {
     
@@ -19,6 +20,7 @@ class GameScene: SKScene {
 //    let apple = SKSpriteNode(imageNamed: "apple.png") // Using Apple as a temp image
     var spriteNodeArray: [SKSpriteNode] = []
     var chosenNodeArray: [SKSpriteNode] = []
+    var incorrectNodeStringArray: [String] = []
     let pictureBorder1 = SKSpriteNode()
     let pictureBorder2 = SKSpriteNode()
     let pictureBorder3 = SKSpriteNode()
@@ -29,7 +31,7 @@ class GameScene: SKScene {
     let pickLabel = SKLabelNode(fontNamed: "ChalkboardSE-Bold") // Need to be a picture
     
     let standardAnchorPoint = CGPoint(x: 0.5, y: 0.5)
-    var numberOfImages: CGFloat = 3  // This will need to be changed later
+    var numberOfImages: CGFloat = 4  // This will need to be changed later
     let setupSceneHelper = SetupSceneHelper()
     let spriteNodeHelper = SpriteNodeHelper()
 //    lazy var correctImage: String = self.chosenNodeArray[0].name!
@@ -38,6 +40,7 @@ class GameScene: SKScene {
 //    lazy var correctSpriteNode: SKSpriteNode = self.apple
     var correctImage: String = ""
     var correctSpriteNode: SKSpriteNode!
+    var incorrectImage: String = ""
     
     var ableToShuffle: Bool = true
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -47,14 +50,22 @@ class GameScene: SKScene {
             if touchedNode.name == correctImage {
                 selectedCorrect()
             }
+            
+            if checkIncorrectImage(touchedNode: touchedNode) {
+                selectedIncorrect()
+            }
+        
             if touchedNode.name == "Shuffle Button" && ableToShuffle == true {
+                run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: false))
                 shuffleImages()
             }
             if touchedNode.name == "Next Button" {
+                run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: false))
                 ableToShuffle = true
                 nextImages()
             }
             if touchedNode.name == "Home Button" {
+                run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: false))
                 goHome()
             }
         }
@@ -62,6 +73,16 @@ class GameScene: SKScene {
 
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    
+    func checkIncorrectImage(touchedNode _touchedNode: SKNode) -> Bool {
+        if _touchedNode.name == incorrectNodeStringArray[0] || _touchedNode.name == incorrectNodeStringArray[1] {
+            return true
+        } else if numberOfImages >= 4 && _touchedNode.name == incorrectNodeStringArray[2] {
+            return true
+        } else {
+            return false
+        }
     }
     
     func shuffleImages() {
@@ -80,12 +101,26 @@ class GameScene: SKScene {
         removeAllChildren()
         setupChosenNodeArray(spriteNodeArray: spriteNodeArray)
         setupMenuNodes()
-        correctImage = chosenNodeArray[0].name!
+        setImages()
         updatePickLabel()
         updateCorrectNode()
     }
     
+    func setImages() {
+        correctImage = chosenNodeArray[0].name!
+        incorrectNodeStringArray.removeAll()
+        for x in 1..<(chosenNodeArray.count) {
+            incorrectNodeStringArray.append(chosenNodeArray[x].name!)
+        }
+        print(incorrectNodeStringArray)
+    }
+    
+    func selectedIncorrect() {
+        run(SKAction.playSoundFileNamed("Try Again.mp3", waitForCompletion: false))
+    }
+    
     func selectedCorrect() {
+        run(SKAction.playSoundFileNamed("Good Job.mp3", waitForCompletion: false))
         pickLabel.text = "Good job!"
         for i in 1..<Int(numberOfImages) {
             chosenNodeArray[i].removeFromParent()

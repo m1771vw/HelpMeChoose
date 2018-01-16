@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class FruitCategory: SKScene {
+class FruitCategory2: SKScene {
     
     lazy var position1 = CGPoint(x: size.width * CGFloat(1 / (numberOfImages + 1)), y: size.height * 0.25)
     lazy var position2 = CGPoint(x: size.width * CGFloat(2 / (numberOfImages + 1)), y: size.height * 0.25)
