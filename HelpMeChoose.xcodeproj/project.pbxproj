@@ -47,6 +47,7 @@
 		F38E542920108156007C101F /* Next Button 2.png in Resources */ = {isa = PBXBuildFile; fileRef = F38E542820108156007C101F /* Next Button 2.png */; };
 		F38E542B2011F17C007C101F /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38E542A2011F17C007C101F /* SettingsScene.swift */; };
 		F38E542D2011FFC7007C101F /* repeat icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F38E542C2011FFC7007C101F /* repeat icon.png */; };
+		F3A08CF4201542D9001E1B9E /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A08CF3201542D9001E1B9E /* MusicPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		F38E542820108156007C101F /* Next Button 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Next Button 2.png"; sourceTree = "<group>"; };
 		F38E542A2011F17C007C101F /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 		F38E542C2011FFC7007C101F /* repeat icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "repeat icon.png"; sourceTree = "<group>"; };
+		F3A08CF3201542D9001E1B9E /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 			children = (
 				F36AE58F1FF33F5E00545BC2 /* SpriteNodeHelper.swift */,
 				F36AE5A320008D5000545BC2 /* SetupSceneHelper.swift */,
+				F3A08CF3201542D9001E1B9E /* MusicPlayer.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 			files = (
 				F362575A1FE10A2400D2EC7E /* GameScene.swift in Sources */,
 				F36AE58A1FF33DA600545BC2 /* TitlePage.swift in Sources */,
+				F3A08CF4201542D9001E1B9E /* MusicPlayer.swift in Sources */,
 				F36AE59F1FF9FC8E00545BC2 /* VegetableCategory.swift in Sources */,
 				F36AE5901FF33F5E00545BC2 /* SpriteNodeHelper.swift in Sources */,
 				F362575C1FE10A2400D2EC7E /* GameViewController.swift in Sources */,
@@ -607,8 +611,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L7287SKHW9;
 				INFOPLIST_FILE = HelpMeChoose/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyang.HelpMeChoose;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -622,8 +627,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L7287SKHW9;
 				INFOPLIST_FILE = HelpMeChoose/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyang.HelpMeChoose;
 				PRODUCT_NAME = "$(TARGET_NAME)";

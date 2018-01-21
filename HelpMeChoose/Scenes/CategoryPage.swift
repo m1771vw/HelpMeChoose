@@ -15,6 +15,7 @@ class CategoryPage: SKScene {
     let homeButton = SKSpriteNode(imageNamed: "Home Button.png")
     var numberOfImagesLabel = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
     var numberOfImages: CGFloat = 3
+    let musicPlayerClass = MusicPlayer()
     override func didMove(to view: SKView) {
         setupNodes()
         backgroundColor = SKColor.white
@@ -31,6 +32,7 @@ class CategoryPage: SKScene {
                 goToVegetable()
             }
             if touchedNode.name == "Home Button" {
+                //musicPlayerClass.playSound(fileName: "Menu Button.mp3")
                 run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: false))
                 goHome()
             }
@@ -63,7 +65,7 @@ class CategoryPage: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        numberOfImagesLabel.text = "\(Int(numberOfImages))"
+        numberOfImagesLabel.text = "Click to choose number of images: \(Int(numberOfImages))"
     }
     
     func goToFruit(){
@@ -91,12 +93,12 @@ class CategoryPage: SKScene {
         addChild(fruitCategory)
         addChild(vegetableCategory)
         
-        snh.setupLabelNode(labelNode: instructionsLabel, text: "Choose a Category!", fontColor: SKColor.black, fontSize: 125, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.75))
+        snh.setupLabelNode(labelNode: instructionsLabel, text: "Choose a Category!", fontColor: SKColor.black, fontSize: 125, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.85))
         addChild(instructionsLabel)
         snh.setupSpriteNode(spriteNode: homeButton, position: CGPoint(x: self.size.width * 0.10, y: self.size.height * 0.1), anchorPoint: CGPoint(x: 0.5, y: 0.5), zPosition: 10, scale: 0.10, name: "Home Button")
         addChild(homeButton)
         
-        snh.setupLabelNode(labelNode: numberOfImagesLabel, text: "\(Int(numberOfImages))", fontColor: SKColor.black, fontSize: 100, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width * 0.90, y: self.size.height * 0.90))
+        snh.setupLabelNode(labelNode: numberOfImagesLabel, text: "Click to choose number of images: \(Int(numberOfImages))", fontColor: SKColor.black, fontSize: 50, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.70))
         numberOfImagesLabel.name = "Number Of Images"
         addChild(numberOfImagesLabel)
     }

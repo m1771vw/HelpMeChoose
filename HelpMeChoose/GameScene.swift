@@ -46,7 +46,7 @@ class GameScene: SKScene {
     var incorrectImage: String = ""
     
     var ableToShuffle: Bool = true
-    
+    let musicPlayerClass = MusicPlayer()
     init(_size: CGSize, _numberOfImages: CGFloat) {
         self.numberOfImages = _numberOfImages
         super.init(size: _size)
@@ -70,16 +70,19 @@ class GameScene: SKScene {
             }
         
             if touchedNode.name == "Shuffle Button" && ableToShuffle == true {
-                run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: false))
+                //musicPlayerClass.playSound(fileName: "Menu Button.mp3")
+                run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: true))
                 shuffleImages()
             }
             if touchedNode.name == "Next Button" {
-                run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: false))
+                //musicPlayerClass.playSound(fileName: "Menu Button.mp3")
+                run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: true))
                 ableToShuffle = true
                 nextImages()
             }
             if touchedNode.name == "Home Button" {
-                self.run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: false))
+                //musicPlayerClass.playSound(fileName: "Menu Button.mp3")
+                run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: true))
                 goBack()
             }
         }
