@@ -12,6 +12,9 @@ class CategoryPage: SKScene {
     let fruitCategory = SKSpriteNode(imageNamed: "apple")
     let vegetableCategory = SKSpriteNode(imageNamed: "broccoli")
     let instructionsLabel = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+    let homeButton = SKSpriteNode(imageNamed: "Home Button.png")
+    var numberOfImagesLabel = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+    var numberOfImages: CGFloat = 3
     override func didMove(to view: SKView) {
         setupNodes()
         backgroundColor = SKColor.white
@@ -24,25 +27,59 @@ class CategoryPage: SKScene {
             if touchedNode.name == "Fruit"{
                 goToFruit()
             }
-            
             if touchedNode.name == "Vegetable" {
                 goToVegetable()
+            }
+            if touchedNode.name == "Home Button" {
+                run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: false))
+                goHome()
+            }
+            
+            if touchedNode.name == "Number Of Images" {
+                if numberOfImages == 3 {
+                    setNumberOfImagesToFour()
+                } else if numberOfImages == 4 {
+                    setNumberOfImagesToThree()
+                }
             }
         }
     }
     
-    override func update(_ currentTime: TimeInterval) {
+    func setNumberOfImagesToThree() {
+        print("Number of Images: \(getNumberOfImages())")
+        numberOfImages = 3
         
     }
     
+    func setNumberOfImagesToFour() {
+        print("Number of Images: \(getNumberOfImages())")
+        numberOfImages = 4
+        
+    }
+    
+    func getNumberOfImages() -> CGFloat {
+        
+        return numberOfImages
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        numberOfImagesLabel.text = "\(Int(numberOfImages))"
+    }
+    
     func goToFruit(){
-        let scene = FruitCategory(size: CGSize(width: 1334, height: 750))
+        let scene = FruitCategory(_size: CGSize(width: 1334, height: 750), _numberOfImages: numberOfImages)
         scene.scaleMode = .aspectFill
         view?.presentScene(scene)
     }
     
     func goToVegetable(){
-        let scene = VegetableCategory(size: CGSize(width: 1334, height: 750))
+        let scene = VegetableCategory(_size: CGSize(width: 1334, height: 750), _numberOfImages: numberOfImages)
+        scene.scaleMode = .aspectFill
+        view?.presentScene(scene)
+    }
+    
+    func goHome() {
+        let scene = TitlePage(size: CGSize(width: 1334, height: 750))
         scene.scaleMode = .aspectFill
         view?.presentScene(scene)
     }
@@ -54,8 +91,14 @@ class CategoryPage: SKScene {
         addChild(fruitCategory)
         addChild(vegetableCategory)
         
-        snh.setupLabelNode(labelNode: instructionsLabel, text: "Choose a Category!", fontColor: SKColor.black, fontSize: 150, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.75))
+        snh.setupLabelNode(labelNode: instructionsLabel, text: "Choose a Category!", fontColor: SKColor.black, fontSize: 125, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.75))
         addChild(instructionsLabel)
+        snh.setupSpriteNode(spriteNode: homeButton, position: CGPoint(x: self.size.width * 0.10, y: self.size.height * 0.1), anchorPoint: CGPoint(x: 0.5, y: 0.5), zPosition: 10, scale: 0.10, name: "Home Button")
+        addChild(homeButton)
+        
+        snh.setupLabelNode(labelNode: numberOfImagesLabel, text: "\(Int(numberOfImages))", fontColor: SKColor.black, fontSize: 100, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width * 0.90, y: self.size.height * 0.90))
+        numberOfImagesLabel.name = "Number Of Images"
+        addChild(numberOfImagesLabel)
     }
     
     

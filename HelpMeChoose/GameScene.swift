@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
+
 class GameScene: SKScene {
     
     lazy var position1 = CGPoint(x: size.width * CGFloat(1 / (numberOfImages + 1)), y: size.height * 0.25)
@@ -25,13 +26,15 @@ class GameScene: SKScene {
     let pictureBorder2 = SKSpriteNode()
     let pictureBorder3 = SKSpriteNode()
     let pictureBorder4 = SKSpriteNode()
-    let shuffleButton = SKSpriteNode(imageNamed: "Red Button.png") // Need to have better picture
+    let shuffleButton = SKSpriteNode(imageNamed: "repeat icon.png") // Need to have better picture
     let homeButton = SKSpriteNode(imageNamed: "Home Button.png") // Need to have better picture
-    let nextButton = SKSpriteNode(imageNamed: "Next Button.png") // Need to have better picture
+    let nextButton = SKSpriteNode(imageNamed: "Next Button 2.png") // Need to have better picture
     let pickLabel = SKLabelNode(fontNamed: "ChalkboardSE-Bold") // Need to be a picture
     
     let standardAnchorPoint = CGPoint(x: 0.5, y: 0.5)
-    var numberOfImages: CGFloat = 4  // This will need to be changed later
+    
+    
+    var numberOfImages: CGFloat // This will need to be changed later
     let setupSceneHelper = SetupSceneHelper()
     let spriteNodeHelper = SpriteNodeHelper()
 //    lazy var correctImage: String = self.chosenNodeArray[0].name!
@@ -43,7 +46,18 @@ class GameScene: SKScene {
     var incorrectImage: String = ""
     
     var ableToShuffle: Bool = true
+    
+    init(_size: CGSize, _numberOfImages: CGFloat) {
+        self.numberOfImages = _numberOfImages
+        super.init(size: _size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Initialization Failed")
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("Number of Images: \(numberOfImages)")
         if let touch = touches.first{
             let touchedLocation = touch.location(in: self)
             let touchedNode = self.atPoint(touchedLocation)
@@ -65,8 +79,8 @@ class GameScene: SKScene {
                 nextImages()
             }
             if touchedNode.name == "Home Button" {
-                run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: false))
-                goHome()
+                self.run(SKAction.playSoundFileNamed("Menu Button.mp3", waitForCompletion: false))
+                goBack()
             }
         }
     }
@@ -77,14 +91,23 @@ class GameScene: SKScene {
     
     func checkIncorrectImage(touchedNode _touchedNode: SKNode) -> Bool {
         if _touchedNode.name == incorrectNodeStringArray[0] || _touchedNode.name == incorrectNodeStringArray[1] {
+            showTryAgain()
             return true
         } else if numberOfImages >= 4 && _touchedNode.name == incorrectNodeStringArray[2] {
+            showTryAgain()
             return true
         } else {
             return false
         }
     }
     
+    func showTryAgain() {
+        pickLabel.text = "Try Again!"
+        let when = DispatchTime.now() + 1.5 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.updatePickLabel()
+        }
+    }
     func shuffleImages() {
         var positionArray = [position1, position2, position3]
         if(numberOfImages == 4){
@@ -104,6 +127,7 @@ class GameScene: SKScene {
         setImages()
         updatePickLabel()
         updateCorrectNode()
+        updateNumberOfImages()
     }
     
     func setImages() {
@@ -135,8 +159,8 @@ class GameScene: SKScene {
 
     func setupMenuNodes(){
         spriteNodeHelper.setupLabelNode(labelNode: pickLabel, text: "Pick \(correctImage)!", fontColor: SKColor.black, fontSize: 150, zPosition: 10, horizontalAlignmentMode: .center, verticalAlignmentMode: .center, position: CGPoint(x: self.size.width / 2, y: self.size.height * 0.75))
-        spriteNodeHelper.setupSpriteNode(spriteNode: shuffleButton, position: CGPoint(x: self.size.width * 0.9, y: self.size.height * 0.9), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.10, name: "Shuffle Button")
-        spriteNodeHelper.setupSpriteNode(spriteNode: homeButton, position: CGPoint(x: self.size.width * 0.1, y: self.size.height * 0.1), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.10, name: "Home Button")
+        spriteNodeHelper.setupSpriteNode(spriteNode: shuffleButton, position: CGPoint(x: self.size.width * 0.9, y: self.size.height * 0.9), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.30, name: "Shuffle Button")
+        spriteNodeHelper.setupSpriteNode(spriteNode: homeButton, position: CGPoint(x: self.size.width * 0.10, y: self.size.height * 0.1), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.10, name: "Home Button")
         spriteNodeHelper.setupSpriteNode(spriteNode: nextButton, position: CGPoint(x: self.size.width * 0.9, y: self.size.height * 0.1), anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.10, name: "Next Button")
         addChild(homeButton)
         addChild(nextButton)
@@ -195,15 +219,20 @@ class GameScene: SKScene {
     }
     
     func updatePickLabel() {
-        pickLabel.text = "Pick \(correctImage)"
+        pickLabel.text = "Pick \(correctImage)!"
     }
     
     func updateCorrectNode() {
         correctSpriteNode = chosenNodeArray[0]
     }
     
-    func goHome() {
-        let scene = TitlePage(size: CGSize(width: 1334, height: 750))
+    func updateNumberOfImages() {
+        
+        print(numberOfImages)
+    }
+    
+    func goBack() {
+        let scene = CategoryPage(size: CGSize(width: 1334, height: 750))
         scene.scaleMode = .aspectFill
         view?.presentScene(scene)
     }

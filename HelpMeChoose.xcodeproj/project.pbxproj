@@ -42,6 +42,11 @@
 		F38E541F200AFC03007C101F /* Good Job.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F38E541E200AFC03007C101F /* Good Job.mp3 */; };
 		F38E5421200AFC77007C101F /* Try Again.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F38E5420200AFC77007C101F /* Try Again.mp3 */; };
 		F38E5423200AFD75007C101F /* Menu Button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F38E5422200AFD75007C101F /* Menu Button.mp3 */; };
+		F38E5425200F468E007C101F /* apple-real.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F38E5424200F468D007C101F /* apple-real.jpg */; };
+		F38E542720108109007C101F /* settings-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = F38E542620108108007C101F /* settings-gear.png */; };
+		F38E542920108156007C101F /* Next Button 2.png in Resources */ = {isa = PBXBuildFile; fileRef = F38E542820108156007C101F /* Next Button 2.png */; };
+		F38E542B2011F17C007C101F /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38E542A2011F17C007C101F /* SettingsScene.swift */; };
+		F38E542D2011FFC7007C101F /* repeat icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F38E542C2011FFC7007C101F /* repeat icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +108,11 @@
 		F38E541E200AFC03007C101F /* Good Job.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Good Job.mp3"; sourceTree = "<group>"; };
 		F38E5420200AFC77007C101F /* Try Again.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Try Again.mp3"; sourceTree = "<group>"; };
 		F38E5422200AFD75007C101F /* Menu Button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Menu Button.mp3"; sourceTree = "<group>"; };
+		F38E5424200F468D007C101F /* apple-real.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "apple-real.jpg"; sourceTree = "<group>"; };
+		F38E542620108108007C101F /* settings-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-gear.png"; sourceTree = "<group>"; };
+		F38E542820108156007C101F /* Next Button 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Next Button 2.png"; sourceTree = "<group>"; };
+		F38E542A2011F17C007C101F /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		F38E542C2011FFC7007C101F /* repeat icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "repeat icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +204,10 @@
 				F36AE5911FF61AC600545BC2 /* Vegetables */,
 				F36AE5881FF2349800545BC2 /* Fruit */,
 				F362578E1FE1112B00D2EC7E /* Red Button.png */,
+				F38E542C2011FFC7007C101F /* repeat icon.png */,
 				F36AE57E1FE3BA5E00545BC2 /* Next Button.png */,
+				F38E542820108156007C101F /* Next Button 2.png */,
+				F38E542620108108007C101F /* settings-gear.png */,
 				F36257901FE37E5800D2EC7E /* Home Button.png */,
 			);
 			path = Images;
@@ -203,6 +216,7 @@
 		F36AE5881FF2349800545BC2 /* Fruit */ = {
 			isa = PBXGroup;
 			children = (
+				F38E5424200F468D007C101F /* apple-real.jpg */,
 				F36257891FE10B9600D2EC7E /* apple.png */,
 				F36AE5801FE65EFF00545BC2 /* grapes.jpg */,
 				F36AE5821FF1AB2000545BC2 /* pear.png */,
@@ -222,6 +236,7 @@
 				F36AE59E1FF9FC8E00545BC2 /* VegetableCategory.swift */,
 				F36AE5A11FF9FCB000545BC2 /* FruitCategory2.swift */,
 				F38E541B2001BE65007C101F /* FruitCategory.swift */,
+				F38E542A2011F17C007C101F /* SettingsScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -364,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38E5425200F468E007C101F /* apple-real.jpg in Resources */,
 				F362578D1FE10B9600D2EC7E /* banana.jpeg in Resources */,
 				F36AE59C1FF61CFE00545BC2 /* corn.jpg in Resources */,
 				F362575F1FE10A2400D2EC7E /* Main.storyboard in Resources */,
@@ -374,6 +390,7 @@
 				F36AE5871FF1AB2100545BC2 /* watermelon.jpg in Resources */,
 				F362578C1FE10B9600D2EC7E /* apple.png in Resources */,
 				F36AE5991FF61CFE00545BC2 /* potato.png in Resources */,
+				F38E542720108109007C101F /* settings-gear.png in Resources */,
 				F36257611FE10A2400D2EC7E /* Assets.xcassets in Resources */,
 				F36257641FE10A2400D2EC7E /* LaunchScreen.storyboard in Resources */,
 				F38E541F200AFC03007C101F /* Good Job.mp3 in Resources */,
@@ -383,7 +400,9 @@
 				F38E5423200AFD75007C101F /* Menu Button.mp3 in Resources */,
 				F362578F1FE1112B00D2EC7E /* Red Button.png in Resources */,
 				F36AE57F1FE3BA5E00545BC2 /* Next Button.png in Resources */,
+				F38E542920108156007C101F /* Next Button 2.png in Resources */,
 				F36AE5981FF61CFE00545BC2 /* tomato.jpg in Resources */,
+				F38E542D2011FFC7007C101F /* repeat icon.png in Resources */,
 				F36257911FE37E5800D2EC7E /* Home Button.png in Resources */,
 				F36AE5851FF1AB2100545BC2 /* pear.png in Resources */,
 				F36AE59B1FF61CFE00545BC2 /* carrot.jpg in Resources */,
@@ -418,6 +437,7 @@
 				F362575C1FE10A2400D2EC7E /* GameViewController.swift in Sources */,
 				F36257541FE10A2400D2EC7E /* AppDelegate.swift in Sources */,
 				F36AE5A21FF9FCB000545BC2 /* FruitCategory2.swift in Sources */,
+				F38E542B2011F17C007C101F /* SettingsScene.swift in Sources */,
 				F36AE5A420008D5000545BC2 /* SetupSceneHelper.swift in Sources */,
 				F38E541C2001BE65007C101F /* FruitCategory.swift in Sources */,
 				F36AE58C1FF33E3500545BC2 /* CategoryPage.swift in Sources */,

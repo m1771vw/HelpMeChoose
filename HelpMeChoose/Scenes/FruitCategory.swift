@@ -12,7 +12,7 @@ import GameKit
 
 class FruitCategory : GameScene {
 
-    let apple = SKSpriteNode(imageNamed: "apple.png")
+    let apple = SKSpriteNode(imageNamed: "apple-real.jpg")
     let banana = SKSpriteNode(imageNamed: "banana.jpeg")
     let orange = SKSpriteNode(imageNamed: "orange.jpg")
     let grape = SKSpriteNode(imageNamed: "grapes.jpg")
@@ -35,7 +35,7 @@ class FruitCategory : GameScene {
     }
     
     func setupNodes(){
-        spriteNodeHelper.setupSpriteNode(spriteNode: apple, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.75, name: "Apple")
+        spriteNodeHelper.setupSpriteNode(spriteNode: apple, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.15, name: "Apple")
         spriteNodeHelper.setupSpriteNode(spriteNode: banana, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.75, name: "Banana")
         spriteNodeHelper.setupSpriteNode(spriteNode: orange, position: position1, anchorPoint: standardAnchorPoint, zPosition : 10, scale: 0.40, name: "Orange")
         spriteNodeHelper.setupSpriteNode(spriteNode: grape, position: position1, anchorPoint: standardAnchorPoint, zPosition: 10, scale: 0.35, name: "Grape")
